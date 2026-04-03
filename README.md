@@ -60,6 +60,8 @@ From this repo root, the main files are:
 - [Claude-derived principles](./agent-operating-model/references/claude-code-derived-principles.md)
 - [Delegation and verification prompts](./agent-operating-model/references/delegation-and-verification-prompts.md)
 - [Test cases](./agent-operating-model/references/test-cases.md)
+- [Evaluation overview](./eval/README.md)
+- [Current capability assessment](./eval/current-assessment.md)
 
 ## Bootstrap a target project
 
@@ -98,6 +100,26 @@ This exports a clean installable package under `/tmp/skill-dist/agent-operating-
 python3 /Users/jerviscen/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
   /Users/jerviscen/workspace/skills/agent-operating-model/agent-operating-model
 ```
+
+## Current capability assessment
+
+Current status: strong and publishable.
+
+Current scorecard:
+- Trigger precision: 8.5/10
+- Instruction efficiency: 9.0/10
+- Practicality: 9.0/10
+- Portability: 8.5/10
+- Verifiability: 8.5/10
+
+Overall: 8.7/10
+
+Why:
+- the canonical nested package validates cleanly
+- bootstrap smoke checks succeeded against temporary Node, Rust, and Python repos
+- the skill now has explicit trigger cases, non-trigger cases, and a cleaner export path
+
+See [eval/current-assessment.md](./eval/current-assessment.md) for the full reasoning and current limits.
 
 ## Sources
 
