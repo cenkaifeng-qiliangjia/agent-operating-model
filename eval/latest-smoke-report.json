@@ -1,0 +1,51 @@
+{
+  "repo_root": "/Users/jerviscen/workspace/skills/agent-operating-model",
+  "skill_root": "/Users/jerviscen/workspace/skills/agent-operating-model/agent-operating-model",
+  "passed": 7,
+  "failed": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "name": "quick_validate",
+      "status": "pass",
+      "summary": "Canonical nested skill package validates cleanly",
+      "details": "Skill is valid!"
+    },
+    {
+      "name": "local_symlink",
+      "status": "pass",
+      "summary": "Local auto-discovery entry resolves to canonical nested package",
+      "details": "/Users/jerviscen/.codex/skills/agent-operating-model -> /Users/jerviscen/workspace/skills/agent-operating-model/agent-operating-model"
+    },
+    {
+      "name": "bootstrap_node",
+      "status": "pass",
+      "summary": "Node bootstrap infers pnpm checks and writes feature overlay",
+      "details": "# Working rules\n\n- Use $agent-operating-model for non-trivial implementation, debugging, and verification tasks.\n- Explore before editing.\n- Keep changes tightly scoped to the requested outcome.\n- Prefer modifying existing structures before introducing new abstractions.\n- Escalate before destructive, externally visible, or shared-state actions.\n\n## Required checks\n- `pnpm lint`\n- `pnpm test`\n- `pnpm build`"
+    },
+    {
+      "name": "bootstrap_rust_review",
+      "status": "pass",
+      "summary": "Rust review bootstrap infers cargo checks and renders review overlay",
+      "details": "# Review and verification rules\n\n- Use $agent-operating-model for review, hardening, and verification tasks.\n- Stay read-only unless the user explicitly asks for fixes.\n- Try to break the change before declaring it sound.\n- Record meaningful verification as command -> observed result.\n- Escalate before destructive, externally visible, or shared-state actions.\n\n## Required checks\n- `cd rust && cargo fmt --all --check`\n- `cd rust && cargo clippy --workspace --all-targets -- -D warnings`\n- `cd rust && cargo test --workspace`"
+    },
+    {
+      "name": "bootstrap_python_debug",
+      "status": "pass",
+      "summary": "Python debug bootstrap infers Ruff/Pytest checks and renders debug overlay",
+      "details": "# Debugging rules\n\n- Use $agent-operating-model for debugging and root-cause analysis.\n- Reproduce the issue or gather failure evidence before editing.\n- Keep hypotheses explicit and separate from fixes.\n- After a fix, rerun the failing path and the required checks.\n- Escalate before destructive, externally visible, or shared-state actions.\n\n## Required checks\n- `python3 -m ruff check .`\n- `python3 -m pytest`"
+    },
+    {
+      "name": "bootstrap_copy_mode",
+      "status": "pass",
+      "summary": "Copy mode vendors the skill and writes .claw/instructions.md",
+      "details": "# Review and verification rules\n\n- Use $agent-operating-model for review, hardening, and verification tasks.\n- Stay read-only unless the user explicitly asks for fixes.\n- Try to break the change before declaring it sound.\n- Record meaningful verification as command -> observed result.\n- Escalate before destructive, externally visible, or shared-state actions.\n\n## Required checks\n- `cargo test`\n\n## Project-specific rules\n- Do not edit generated files by hand."
+    },
+    {
+      "name": "export_package",
+      "status": "pass",
+      "summary": "Clean export includes runtime files and omits repo-only README",
+      "details": "SKILL.md\nagents/openai.yaml\nreferences/claude-code-derived-principles.md\nreferences/claw-code-compatibility.md\nreferences/delegation-and-verification-prompts.md\nreferences/test-cases.md\nscripts/bootstrap_project.py\nscripts/export_skill_package.py"
+    }
+  ]
+}

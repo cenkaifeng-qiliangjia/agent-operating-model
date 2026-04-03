@@ -38,6 +38,20 @@ We use three evidence types:
 
 See [current-assessment.md](./current-assessment.md).
 
+## Semi-automated smoke evaluation
+
+Run:
+
+```bash
+python3 eval/run_smoke_eval.py \
+  --output-json eval/latest-smoke-report.json \
+  --output-md eval/latest-smoke-report.md
+```
+
+Latest generated reports:
+- [latest-smoke-report.md](./latest-smoke-report.md)
+- [latest-smoke-report.json](./latest-smoke-report.json)
+
 ## How to extend this
 
 Good next steps:

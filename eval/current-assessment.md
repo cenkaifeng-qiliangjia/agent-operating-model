@@ -82,6 +82,7 @@ Validated successfully:
 - Rust-style bootstrap infers `cargo fmt`, `cargo clippy`, and `cargo test`
 - Python-style bootstrap infers `ruff` and `pytest`
 - export script produces a clean package without repo-only README content
+- latest smoke evaluation currently passes 7/7 checks
 
 ## What this skill is best at right now
 

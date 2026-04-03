@@ -101,6 +101,18 @@ python3 /Users/jerviscen/.codex/skills/.system/skill-creator/scripts/quick_valid
   /Users/jerviscen/workspace/skills/agent-operating-model/agent-operating-model
 ```
 
+## Semi-automated smoke evaluation
+
+```bash
+python3 eval/run_smoke_eval.py \
+  --output-json eval/latest-smoke-report.json \
+  --output-md eval/latest-smoke-report.md
+```
+
+Latest generated reports:
+- [Smoke report (Markdown)](./eval/latest-smoke-report.md)
+- [Smoke report (JSON)](./eval/latest-smoke-report.json)
+
 ## Current capability assessment
 
 Current status: strong and publishable.
@@ -118,6 +130,7 @@ Why:
 - the canonical nested package validates cleanly
 - bootstrap smoke checks succeeded against temporary Node, Rust, and Python repos
 - the skill now has explicit trigger cases, non-trigger cases, and a cleaner export path
+- the latest semi-automated smoke run currently passes 7/7 checks
 
 See [eval/current-assessment.md](./eval/current-assessment.md) for the full reasoning and current limits.
 
