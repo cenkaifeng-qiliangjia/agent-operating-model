@@ -1,6 +1,6 @@
 ---
 name: agent-operating-model
-description: Claude-Code-derived operating model for Codex, OpenClaw, and Claw Code. Strengthen multi-step engineering work with tighter execution discipline, context budgeting, tool-selection grammar, risk gating, precise delegation, and adversarial verification. Use when the user asks for Claude Code style behavior, stronger agent rigor, safer edits, better subagent delegation, stricter validation, or when a non-trivial coding task needs more reliable operating rules.
+description: Claude-Code-derived operating model for Codex, OpenClaw, and Claw Code. Strengthen multi-step engineering work with tighter execution discipline, context budgeting, tool-selection grammar, risk gating, precise delegation, adversarial verification, and repo-local instruction bootstrapping. Use when the user asks for Claude Code style behavior, stronger agent rigor, safer edits, better subagent delegation, stricter validation, or when a non-trivial coding task needs more reliable operating rules or a repo-level CLAW.md or skill overlay.
 ---
 
 # Agent Operating Model
@@ -73,6 +73,8 @@ Read [references/delegation-and-verification-prompts.md](references/delegation-a
 - Keep repo-local instruction files short and non-duplicative because Claw Code injects them into the prompt under a character budget.
 - Translate structured-tool intent onto Claw's native tool names such as `read_file`, `write_file`, `edit_file`, `glob_search`, `grep_search`, `Skill`, `Agent`, `TodoWrite`, and `ToolSearch`.
 - Use Claw's operational entry points when available: `/skills`, `/memory`, `/agents`, `/permissions`, and `/ultraplan`.
+- When asked to wire this operating model into a target repository, run `python3 scripts/bootstrap_project.py --repo /path/to/repo` and add `--check` flags for required verification commands instead of drafting the repo overlay from scratch.
+- Prefer `--install-skill link` for local iteration and `--install-skill copy` when the target repo should vendor a standalone snapshot.
 
 Read [references/claw-code-compatibility.md](references/claw-code-compatibility.md) when you want concrete Claw Code usage patterns.
 

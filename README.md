@@ -99,6 +99,39 @@ mkdir -p .codex/skills
 cp -R agent-operating-model .codex/skills/
 ```
 
+## Bootstrap a project
+
+If you want a target repo to pick up this operating model quickly, use the included bootstrap helper:
+
+```bash
+python3 scripts/bootstrap_project.py \
+  --repo /path/to/project \
+  --check "pnpm lint" \
+  --check "pnpm test"
+```
+
+By default this:
+- writes a minimal `CLAW.md`
+- links this skill into `<repo>/.codex/skills/agent-operating-model`
+
+Useful variants:
+
+```bash
+python3 scripts/bootstrap_project.py \
+  --repo /path/to/project \
+  --instructions-file .claw/instructions.md \
+  --install-skill copy \
+  --check "cargo fmt" \
+  --check "cargo test"
+```
+
+```bash
+python3 scripts/bootstrap_project.py \
+  --repo /path/to/project \
+  --install-skill skip \
+  --extra-rule "Do not modify generated API clients directly."
+```
+
 ## Suggested prompts
 
 ```text

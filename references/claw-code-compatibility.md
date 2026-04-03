@@ -37,6 +37,30 @@ This means the best way to strengthen the skill for Claw Code is:
 - `/permissions` before risky work
 - `/ultraplan` when planning needs deeper sequencing
 
+## Bootstrap helper
+
+This skill now includes `scripts/bootstrap_project.py` so you do not have to hand-write the repo overlay each time.
+
+Example:
+
+```bash
+python3 scripts/bootstrap_project.py \
+  --repo /path/to/project \
+  --check "pnpm lint" \
+  --check "pnpm test"
+```
+
+What it does:
+- writes a minimal `CLAW.md` or `.claw/instructions.md`
+- installs the skill into `<repo>/.codex/skills/agent-operating-model`
+- defaults to a symlink for fast local iteration
+
+Useful modes:
+- `--install-skill link` keeps the target repo tracking your local working copy
+- `--install-skill copy` vendors a standalone snapshot into the target repo
+- `--install-skill skip` writes only the repo-local instruction overlay
+- `--force` replaces conflicting targets
+
 ## Minimal `CLAW.md` pattern
 
 Use this in a target repo when you want Claw Code to reinforce the skill without copying all of it:
