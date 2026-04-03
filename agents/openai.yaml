@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Operating Model"
+  short_description: "Claude-derived rigor for multi-step coding work"
+  default_prompt: "Use $agent-operating-model to handle this task with Claude-Code-style discipline, safer execution, and stronger verification."
