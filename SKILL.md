@@ -1,6 +1,6 @@
 ---
 name: agent-operating-model
-description: Claude-Code-derived operating model for Codex/OpenClaw. Strengthen multi-step engineering work with tighter execution discipline, context budgeting, tool-selection grammar, risk gating, precise delegation, and adversarial verification. Use when the user asks for Claude Code style behavior, stronger agent rigor, safer edits, better subagent delegation, stricter validation, or when a non-trivial coding task needs more reliable operating rules.
+description: Claude-Code-derived operating model for Codex, OpenClaw, and Claw Code. Strengthen multi-step engineering work with tighter execution discipline, context budgeting, tool-selection grammar, risk gating, precise delegation, and adversarial verification. Use when the user asks for Claude Code style behavior, stronger agent rigor, safer edits, better subagent delegation, stricter validation, or when a non-trivial coding task needs more reliable operating rules.
 ---
 
 # Agent Operating Model
@@ -66,6 +66,15 @@ If it does not, simulate the same separation in one thread and avoid mixing role
 - Do not ask a helper to "figure out the task and then maybe fix it." Hand over the actual task.
 
 Read [references/delegation-and-verification-prompts.md](references/delegation-and-verification-prompts.md) when you need reusable prompt templates.
+
+## Claw Code compatibility
+- Claw Code can discover this skill from project `.codex/skills`, user `$CODEX_HOME/skills`, or user `~/.codex/skills`.
+- In Claw Code, pair this skill with a short repo-local `CLAW.md` or `.claw/instructions.md` when the project needs stronger, project-specific reinforcement.
+- Keep repo-local instruction files short and non-duplicative because Claw Code injects them into the prompt under a character budget.
+- Translate structured-tool intent onto Claw's native tool names such as `read_file`, `write_file`, `edit_file`, `glob_search`, `grep_search`, `Skill`, `Agent`, `TodoWrite`, and `ToolSearch`.
+- Use Claw's operational entry points when available: `/skills`, `/memory`, `/agents`, `/permissions`, and `/ultraplan`.
+
+Read [references/claw-code-compatibility.md](references/claw-code-compatibility.md) when you want concrete Claw Code usage patterns.
 
 ## Verification contract
 - Treat verification as adversarial. Assume the first 80 percent of success can hide the last 20 percent of failure.
