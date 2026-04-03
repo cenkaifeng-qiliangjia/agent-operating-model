@@ -82,6 +82,7 @@ More detail:
 - [Claw compatibility](./references/claw-code-compatibility.md)
 - [Claude-derived principles](./references/claude-code-derived-principles.md)
 - [Delegation and verification prompts](./references/delegation-and-verification-prompts.md)
+- [Test cases](./references/test-cases.md)
 
 ## Install
 
@@ -105,16 +106,23 @@ If you want a target repo to pick up this operating model quickly, use the inclu
 
 ```bash
 python3 scripts/bootstrap_project.py \
-  --repo /path/to/project \
-  --check "pnpm lint" \
-  --check "pnpm test"
+  --repo /path/to/project
 ```
 
 By default this:
 - writes a minimal `CLAW.md`
 - links this skill into `<repo>/.codex/skills/agent-operating-model`
+- auto-detects likely checks from common repo files when it can
 
 Useful variants:
+
+```bash
+python3 scripts/bootstrap_project.py \
+  --repo /path/to/project \
+  --template debug \
+  --check "pnpm test -- billing-webhook" \
+  --check "pnpm lint"
+```
 
 ```bash
 python3 scripts/bootstrap_project.py \
@@ -128,9 +136,28 @@ python3 scripts/bootstrap_project.py \
 ```bash
 python3 scripts/bootstrap_project.py \
   --repo /path/to/project \
+  --template review \
   --install-skill skip \
   --extra-rule "Do not modify generated API clients directly."
 ```
+
+## Validate and package
+
+Quick structure validation:
+
+```bash
+python3 /Users/jerviscen/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
+```
+
+If you want a clean runtime package without repo-only docs like `README.md`, export one:
+
+```bash
+python3 scripts/export_skill_package.py \
+  --output /tmp/skill-dist \
+  --force
+```
+
+That produces `/tmp/skill-dist/agent-operating-model/` as a cleaner distribution artifact for direct installation.
 
 ## Suggested prompts
 

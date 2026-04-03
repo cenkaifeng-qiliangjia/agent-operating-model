@@ -73,10 +73,13 @@ Read [references/delegation-and-verification-prompts.md](references/delegation-a
 - Keep repo-local instruction files short and non-duplicative because Claw Code injects them into the prompt under a character budget.
 - Translate structured-tool intent onto Claw's native tool names such as `read_file`, `write_file`, `edit_file`, `glob_search`, `grep_search`, `Skill`, `Agent`, `TodoWrite`, and `ToolSearch`.
 - Use Claw's operational entry points when available: `/skills`, `/memory`, `/agents`, `/permissions`, and `/ultraplan`.
-- When asked to wire this operating model into a target repository, run `python3 scripts/bootstrap_project.py --repo /path/to/repo` and add `--check` flags for required verification commands instead of drafting the repo overlay from scratch.
+- When asked to wire this operating model into a target repository, run `python3 scripts/bootstrap_project.py --repo /path/to/repo` instead of drafting the repo overlay from scratch.
+- Use `--template feature`, `--template debug`, or `--template review` to match the repo overlay to the task type.
+- If explicit checks are unknown, let the script auto-detect likely commands from `package.json`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
 - Prefer `--install-skill link` for local iteration and `--install-skill copy` when the target repo should vendor a standalone snapshot.
 
 Read [references/claw-code-compatibility.md](references/claw-code-compatibility.md) when you want concrete Claw Code usage patterns.
+Read [references/test-cases.md](references/test-cases.md) when you want trigger, functional, and baseline evaluation examples.
 
 ## Verification contract
 - Treat verification as adversarial. Assume the first 80 percent of success can hide the last 20 percent of failure.

@@ -45,17 +45,17 @@ Example:
 
 ```bash
 python3 scripts/bootstrap_project.py \
-  --repo /path/to/project \
-  --check "pnpm lint" \
-  --check "pnpm test"
+  --repo /path/to/project
 ```
 
 What it does:
 - writes a minimal `CLAW.md` or `.claw/instructions.md`
 - installs the skill into `<repo>/.codex/skills/agent-operating-model`
 - defaults to a symlink for fast local iteration
+- auto-detects likely verification commands from common repo manifests when possible
 
 Useful modes:
+- `--template feature|debug|review` tailors the overlay to implementation, debugging, or verification work
 - `--install-skill link` keeps the target repo tracking your local working copy
 - `--install-skill copy` vendors a standalone snapshot into the target repo
 - `--install-skill skip` writes only the repo-local instruction overlay
