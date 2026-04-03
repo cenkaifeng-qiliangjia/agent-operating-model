@@ -31,6 +31,30 @@ This skill adds a stronger engineering operating model:
 
 It is most useful for non-trivial engineering work where you want an agent to behave more like a disciplined engineer than a fast autocomplete loop.
 
+## 人话版
+
+装上这个 skill 之后，最直接的效果不是“模型突然变聪明了”，而是它做事会更像一个靠谱工程师。
+
+你通常会看到这些变化：
+- 不会一上来就乱改代码，先读上下文，再动手。
+- 不容易顺手加一堆你没要的东西，scope 会更收敛。
+- 更愿意把工作拆成探索、实现、验证几个阶段，而不是想到哪写到哪。
+- 改完不会只说“应该好了”，而是更倾向真的跑检查、给出证据。
+- 做复杂任务时更稳，尤其是调 bug、做 review、接手陌生仓库的时候。
+
+如果用更直白的话说，它提升的是“做事方式”：
+- 少跑偏
+- 少瞎改
+- 少过度设计
+- 多验证
+- 多一点工程纪律
+
+它最适合的场景是：
+- 新功能开发，希望代理改得准一点、少扩 scope
+- 排查 bug，希望代理先找根因，不要靠猜
+- 提交前 review，希望代理更像 QA 或 reviewer，而不是实现者自我感觉良好
+- 接手陌生项目，希望代理先建立 repo 规则和检查入口
+
 ## Practical scenarios
 
 1. Feature work
